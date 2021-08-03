@@ -30,7 +30,6 @@ public class AuthService {
     private final AuthenticationManager authenticationManager;
     private final JwtProvider jwtProvider;
     private final PasswordEncoder passwordEncoder;
-    private final RefreshTokenService refreshTokenService;
 
     public void signup(RegisterRequest registerRequest) {
         User user = new User();

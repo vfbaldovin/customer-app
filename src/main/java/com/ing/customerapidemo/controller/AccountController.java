@@ -18,7 +18,7 @@ public class AccountController {
 
     @PostMapping
     public ResponseEntity<AccountDto> save(@RequestBody AccountDto accountDto) {
-        return new ResponseEntity<>(accountService.saveAccount(accountDto), HttpStatus.CREATED);
+        return new ResponseEntity<>(accountService.save(accountDto), HttpStatus.CREATED);
     }
 
     @GetMapping
@@ -26,9 +26,19 @@ public class AccountController {
         return new ResponseEntity<>(accountService.getAll(), HttpStatus.OK);
     }
 
+    @GetMapping("/{id}")
+    public ResponseEntity<AccountDto> getById(@PathVariable Long id) {
+        return new ResponseEntity<>(accountService.findById(id), HttpStatus.OK);
+    }
+
     @PutMapping
     public ResponseEntity<AccountDto> update(@RequestBody AccountDto accountDto) {
-        return new ResponseEntity<>(accountService.up(accountDto), HttpStatus.CREATED);
+        return new ResponseEntity<>(accountService.update(accountDto), HttpStatus.OK);
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<String> delete(@PathVariable Long id) {
+        return new ResponseEntity<>(String.format("Account with ID = %d", id), HttpStatus.OK);
     }
 
 }

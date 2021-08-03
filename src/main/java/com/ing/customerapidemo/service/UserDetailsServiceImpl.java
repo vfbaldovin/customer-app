@@ -25,7 +25,8 @@ public class UserDetailsServiceImpl implements UserDetailsService {
                 .orElseThrow(() -> new ServiceException(String.format("User with id %s not found.", username)));
 
         return new org.springframework.security
-                .core.userdetails.User(user.getUsername(), user.getPassword(), Collections.emptyList());
+                .core.userdetails.User(user.getUsername(), user.getPassword(), user.isEnabled(), true,
+                true, true, Collections.emptyList());
     }
 
 
