@@ -1,6 +1,8 @@
 package com.ing.customerapidemo.controller;
 
-import com.ing.customerapidemo.dto.RegisterRequest;
+import com.ing.customerapidemo.dto.response.AuthenticationResponse;
+import com.ing.customerapidemo.dto.request.LoginRequest;
+import com.ing.customerapidemo.dto.request.RegisterRequest;
 import com.ing.customerapidemo.service.AuthService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -22,4 +24,11 @@ public class AuthController {
         authService.signup(registerRequest);
         return new ResponseEntity<>("User Registration Successful",
                 HttpStatus.OK);
-    }}
+    }
+
+    @PostMapping("/login")
+    public AuthenticationResponse login(@RequestBody LoginRequest loginRequest) {
+        return authService.login(loginRequest);
+    }
+
+}

@@ -1,4 +1,4 @@
-package com.ing.customerapidemo.dto;
+package com.ing.customerapidemo.dto.request;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
